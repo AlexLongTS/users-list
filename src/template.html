@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1.0'> %sapper.base%
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#111111">
+    <meta name="msapplication-TileColor" content="#111111">
+    <meta name="theme-color" content="#111111">
+    <link rel="stylesheet" href="index.css" />
+    <link rel='stylesheet' href='global.css'>
+    <script async src="https://www.googletagmanager.com/gtag/js"></script>
+    <script>
+      // Edge specific include for crypto libraries.
+      if(window.navigator.userAgent.includes('Edge')) {
+        console.log(window.navigator.userAgent);
+        var head = document.getElementsByTagName('head')[0];
+        var script = document.createElement('script');
+        script.setAttribute('src', 'https://cdn.jsdelivr.net/npm/node-forge@0.7.0/dist/forge.min.js');
+        script.setAttribute('type', 'text/javascript');
+        script.setAttribute('async', 'false');
+        head.appendChild(script);
+      }
+    </script>
+
+    %sapper.styles% %sapper.head%
+</head>
+
+<body>
+    <div id='sapper'>%sapper.html%</div>
+    %sapper.scripts%
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+{
+  "name": "TODO",
+  "description": "TODO",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "run-p watch:tailwind sapper-dev",
+    "sapper-dev": "sapper dev",
+    "build": "npm run build:tailwind && sapper build --legacy",
+    "export": "npm run build:tailwind && sapper export --legacy",
+    "export-no-legacy": "npm run build:tailwind && sapper export",
+    "start": "node __sapper__/build",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "watch:tailwind": "postcss static/tailwind.css -o static/index.css -w",
+    "build:tailwind": "cross-env NODE_ENV=production postcss static/tailwind.css -o static/index.css",
+    "test": "run-p --race dev cy:run"
+  },
+  "dependencies": {
+    "@fullhuman/postcss-purgecss": "^1.3.0",
+    "compression": "^1.7.4",
+    "cross-env": "^6.0.3",
+    "cssnano": "^4.1.10",
+    "httpie": "^2.0.0-next.2",
+    "polka": "next",
+    "postcss-cli": "^7.1.0",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-root-import": "^0.2.4",
+    "sirv": "^0.4.2",
+    "tailwindcss": "^1.1.4",
+    "ua-parser-js": "^0.7.21"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.8.0",
+    "@babel/preset-env": "^7.8.2",
+    "@babel/runtime": "^7.8.0",
+    "@rollup/plugin-json": "^4.0.1",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^1.29.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-svelte": "^5.1.1",
+    "rollup-plugin-terser": "^5.2.0",
+    "sapper": "^0.27.9",
+    "svelte": "^3.16.7"
+  }
+}
